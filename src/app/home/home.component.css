@@ -1,0 +1,19 @@
+.container-fluid h1 {
+  margin-top: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-fluid p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.texto {
+  margin-top: 3em;
+  margin-left: 10em;
+  margin-right: 10em;
+  text-align: justify;
+}

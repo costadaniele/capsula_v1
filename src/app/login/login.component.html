@@ -1,39 +1,110 @@
-<div *ngIf="!auth">
-  <div>Integrante</div>
-  <div><input type="text" [(ngModel)]="login" /></div>
-  <div>Senha</div>
-  <div><input type="password" [(ngModel)]="password" /></div>
-  <hr />
-  <div><input type="button" value="Entrar" (click)="postLogin()" /></div>
+<div class="form">
+  <div *ngIf="!auth">
+    <h2>Login</h2>
+    <hr />
+    <p class="txt_form">Integrante</p>
+    <div><input type="text" [(ngModel)]="login" /></div>
+    <p class="txt_form">Senha</p>
+    <div><input type="password" [(ngModel)]="password" /></div>
+    <hr />
+    <div>
+      <input class="botao" type="button" value="Entrar" (click)="postLogin()" />
+    </div>
+  </div>
 </div>
 
 <!--Cápsulas-->
 <div *ngIf="auth">
-  <div>
+  <div class="log_user">
     Bem vindo, {{ auth.username }}
-    <input type="button" value="Sair" (click)="postLogout()" />
+    <input
+      type="button"
+      class="botao_sair"
+      value="Sair"
+      (click)="postLogout()"
+    />
   </div>
-  <hr />
-  <button (click)="getList()">Atualizar Cápsulas</button>
+  <br />
+  <p class="form">Clique nos botões para atualizar as respectivas tabelas</p>
+  <div class="apt">
+    <!--Cápsulas-->
 
-  <div *ngIf="list">
-    <table>
-      <tr>
-        <th>id</th>
-        <th>título</th>
-        <th>ano</th>
-        <th>descricao</th>
-        <th>imageUrl</th>
-        <th>Ações</th>
-      </tr>
-      <tr *ngFor="let item of list">
-        <td>{{ item['id'] }}</td>
-        <td>{{ item['title'] }}</td>
-        <td>{{ item['ano'] }}</td>
-        <td>{{ item['descricao'] }}</td>
-        <td>{{ item['imageUrl'] }}</td>
-        <td>{{ item['imageUrl'] }}</td>
-      </tr>
-    </table>
+    <div class="form_req">
+      <p><button class="botao_get" (click)="getList()">Cápsulas</button></p>
+
+      <div class="list" *ngIf="list">
+        <table>
+          <tr>
+            <th>id</th>
+            <th>título</th>
+            <th>ano</th>
+            <th>descricao</th>
+            <th>imageUrl</th>
+            <th>Ações</th>
+          </tr>
+
+          <tr *ngFor="let item of list">
+            <td>{{ item['id'] }}</td>
+            <td>{{ item['title'] }}</td>
+            <td>{{ item['ano'] }}</td>
+            <td>{{ item['descricao'] }}</td>
+            <td>{{ item['imageUrl'] }}</td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!--Regiões-->
+  <div class="apt">
+    <div class="form_req">
+      <p>
+        <button class="botao_get" (click)="getListInt()">Integrantes</button>
+      </p>
+
+      <div class="list" *ngIf="list">
+        <table>
+          <tr>
+            <th>id</th>
+            <th>nome</th>
+            <th>email</th>
+            <th>publicação</th>
+            <th>região</th>
+            <th>perfis</th>
+          </tr>
+          <tr *ngFor="let item of list">
+            <td>{{ item['id'] }}</td>
+            <td>{{ item['nome'] }}</td>
+            <td>{{ item['email'] }}</td>
+            <td>{{ item['publicacao'] }}</td>
+            <td>{{ item['regioes'] }}</td>
+            <td>{{ item['perfis'] }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!--Regiões-->
+  <div class="apt">
+    <div class="form_req">
+      <p><button class="botao_get" (click)="getListReg()">Regiões</button></p>
+
+      <div class="form_req">
+        <div class="list" *ngIf="list">
+          <table>
+            <tr>
+              <th>cidade</th>
+              <th>estado</th>
+            </tr>
+            <tr *ngFor="let item of list">
+              <td>{{ item['cidade'] }}</td>
+              <td>{{ item['estado'] }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

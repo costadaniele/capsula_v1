@@ -1,0 +1,84 @@
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3em;
+}
+
+.botao {
+  font-size: 16px;
+  border: 0.1em solid #272838;
+  border-radius: 0.2em;
+  width: 12em;
+  height: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background-color: #272838;
+  color: #fff;
+}
+
+.botao_sair {
+  font-size: 16px;
+  border: 0.1em solid #272838;
+  border-radius: 0.2em;
+  width: 6em;
+  height: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background-color: #272838;
+  color: #fff;
+}
+
+.botao_get {
+  font-size: 16px;
+  border: 0.1em solid #272838;
+  border-radius: 0.2em;
+  width: 10em;
+  height: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background-color: #272838;
+  color: #fff;
+}
+
+.log_user {
+  float: right;
+  margin-right: 5em;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+}
+
+th:hover,
+td:hover {
+  background-color: #f3de8a;
+}
+
+.txt_form {
+  margin-top: 1em;
+  margin-bottom: 0.2em;
+}
+
+p {
+  color: #272838;
+  font-size: 12px;
+}
+
+.apt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.apt .botao_get {
+  margin-right: 5em;
+}
+
+.form_req {
+  width: 30em;
+}

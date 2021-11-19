@@ -17,8 +17,8 @@ export class LoginComponent {
   site = 'https://warm-eyrie-48554.herokuapp.com';
   name = 'Cápsulas Sonoras';
 
-  login = 'daniele@gmail';
-  password = '789';
+  login = 'marina@gmail.com';
+  password = '2021';
 
   auth = null;
 
@@ -55,7 +55,17 @@ export class LoginComponent {
 
   getListInt() {
     this.http
-      .get<any>(this.site + '/integrantes/', {
+      .get<any>(this.site + '/integrantes', {
+        headers: { Authorization: 'Bearer ' + this.auth.token },
+      })
+      .subscribe((data) => {
+        this.list = data;
+      });
+  }
+
+  getListReg() {
+    this.http
+      .get<any>(this.site + '/regioes', {
         headers: { Authorization: 'Bearer ' + this.auth.token },
       })
       .subscribe((data) => {

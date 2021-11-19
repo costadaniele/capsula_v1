@@ -16,7 +16,7 @@
 <!--Cápsulas-->
 <div *ngIf="auth">
   <div class="log_user">
-    Bem vindo, {{ auth.username }}
+    Bem vindo (a), {{ auth.username }}
     <input
       type="button"
       class="botao_sair"
@@ -25,7 +25,7 @@
     />
   </div>
   <br />
-  <p class="form">Clique nos botões para atualizar as respectivas tabelas</p>
+  <p class="form">Clique no botão para ver as cápsulas cadastradas</p>
   <div class="apt">
     <!--Cápsulas-->
 
@@ -55,8 +55,8 @@
       </div>
     </div>
   </div>
-
-  <!--Regiões-->
+  <!--
+  
   <div class="apt">
     <div class="form_req">
       <p>
@@ -86,7 +86,7 @@
     </div>
   </div>
 
-  <!--Regiões-->
+
   <div class="apt">
     <div class="form_req">
       <p><button class="botao_get" (click)="getListReg()">Regiões</button></p>
@@ -108,3 +108,5 @@
     </div>
   </div>
 </div>
+
+--></div>

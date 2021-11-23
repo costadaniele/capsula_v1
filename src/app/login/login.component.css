@@ -82,3 +82,9 @@ p {
 .form_req {
   width: 30em;
 }
+
+.cad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

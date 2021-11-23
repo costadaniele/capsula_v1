@@ -8,6 +8,24 @@ interface Auth {
   profile: Array<String>;
 }
 
+interface Auth2 {
+  token: string;
+  username: string;
+  profile: Array<String>;
+}
+
+interface Auth3 {
+  token: string;
+  username: string;
+  profile: Array<String>;
+}
+
+interface Auth4 {
+  token: string;
+  username: string;
+  profile: Array<String>;
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,10 +35,29 @@ export class LoginComponent {
   site = 'https://warm-eyrie-48554.herokuapp.com';
   name = 'Cápsulas Sonoras';
 
-  login = 'marina@gmail.com';
-  password = '2021';
+  login = '';
+  password = '';
+
+  nome = '';
+  email = '';
+  login2 = '';
+  senha = '';
+  cidade = '';
+  estado = '';
+  perfil = '';
+
+  title = '';
+  ano = '';
+  descricao = '';
+  imageUrl = '';
 
   auth = null;
+
+  auth2 = null;
+
+  auth3 = null;
+
+  auth4 = null;
 
   list = null;
 
@@ -39,6 +76,46 @@ export class LoginComponent {
       });
   }
 
+  postCadastro() {
+    this.http
+      .post<Auth2>(this.site + '/integrantes', {
+        nome: this.nome,
+        email: this.email,
+        login: this.login2,
+        senha: this.senha,
+        cidade: this.cidade,
+        estado: this.estado,
+      })
+      .subscribe((data) => {
+        this.auth2 = data;
+      });
+  }
+
+  postCapsula() {
+    this.http
+      .post<Auth3>(this.site + '/capsulas', {
+        title: this.title,
+        ano: this.ano,
+        descricao: this.descricao,
+        imageUrl: this.imageUrl,
+        perfis: this.perfil,
+      })
+      .subscribe((data) => {
+        this.auth3 = data;
+      });
+  }
+
+  postRegiao() {
+    this.http
+      .post<Auth4>(this.site + '/regioes', {
+        cidade: this.cidade,
+        estado: this.estado,
+      })
+      .subscribe((data) => {
+        this.auth4 = data;
+      });
+  }
+
   postLogout() {
     this.auth = null;
   }
@@ -53,7 +130,7 @@ export class LoginComponent {
       });
   }
 
-  getListInt() {
+  getIntg() {
     this.http
       .get<any>(this.site + '/integrantes', {
         headers: { Authorization: 'Bearer ' + this.auth.token },
@@ -62,6 +139,16 @@ export class LoginComponent {
         this.list = data;
       });
   }
+
+  /*deleteList() {
+    this.http
+      .delete<any>(this.site + '/integrantes/' + id {
+        headers: { Authorization: 'Bearer ' + this.auth.token },
+      })
+      .subscribe((data) => {
+        this.list = data;
+      });
+  }*/
 
   getListReg() {
     this.http

@@ -1,112 +1,202 @@
-<div class="form">
+<div class="cad">
   <div *ngIf="!auth">
-    <h2>Login</h2>
-    <hr />
-    <p class="txt_form">Integrante</p>
-    <div><input type="text" [(ngModel)]="login" /></div>
-    <p class="txt_form">Senha</p>
-    <div><input type="password" [(ngModel)]="password" /></div>
-    <hr />
-    <div>
-      <input class="botao" type="button" value="Entrar" (click)="postLogin()" />
-    </div>
-  </div>
-</div>
-
-<!--Cápsulas-->
-<div *ngIf="auth">
-  <div class="log_user">
-    Bem vindo (a), {{ auth.username }}
-    <input
-      type="button"
-      class="botao_sair"
-      value="Sair"
-      (click)="postLogout()"
-    />
-  </div>
-  <br />
-  <p class="form">Clique no botão para ver as cápsulas cadastradas</p>
-  <div class="apt">
-    <!--Cápsulas-->
-
-    <div class="form_req">
-      <p><button class="botao_get" (click)="getList()">Cápsulas</button></p>
-
-      <div class="list" *ngIf="list">
-        <table>
-          <tr>
-            <th>id</th>
-            <th>título</th>
-            <th>ano</th>
-            <th>descricao</th>
-            <th>imageUrl</th>
-            <th>Ações</th>
-          </tr>
-
-          <tr *ngFor="let item of list">
-            <td>{{ item['id'] }}</td>
-            <td>{{ item['title'] }}</td>
-            <td>{{ item['ano'] }}</td>
-            <td>{{ item['descricao'] }}</td>
-            <td>{{ item['imageUrl'] }}</td>
-            <td></td>
-          </tr>
-        </table>
+    <div class="form">
+      <div *ngIf="!auth2">
+        <h2>Login</h2>
+        <hr />
+        <p class="txt_form">Integrante</p>
+        <div><input type="text" [(ngModel)]="login" /></div>
+        <p class="txt_form">Senha</p>
+        <div><input type="password" [(ngModel)]="password" /></div>
+        <hr />
+        <div>
+          <input
+            class="botao"
+            type="button"
+            value="Entrar"
+            (click)="postLogin()"
+          />
+        </div>
       </div>
     </div>
   </div>
-  <!--
-  
-  <div class="apt">
-    <div class="form_req">
-      <p>
-        <button class="botao_get" (click)="getListInt()">Integrantes</button>
-      </p>
-
-      <div class="list" *ngIf="list">
-        <table>
-          <tr>
-            <th>id</th>
-            <th>nome</th>
-            <th>email</th>
-            <th>publicação</th>
-            <th>região</th>
-            <th>perfis</th>
-          </tr>
-          <tr *ngFor="let item of list">
-            <td>{{ item['id'] }}</td>
-            <td>{{ item['nome'] }}</td>
-            <td>{{ item['email'] }}</td>
-            <td>{{ item['publicacao'] }}</td>
-            <td>{{ item['regioes'] }}</td>
-            <td>{{ item['perfis'] }}</td>
-          </tr>
-        </table>
+  <div *ngIf="!auth">
+    <div class="form">
+      <div *ngIf="!auth2">
+        <h2>Cadastrar</h2>
+        <hr />
+        <p class="txt_form">Integrante</p>
+        <div><input type="text" [(ngModel)]="nome" /></div>
+        <p class="txt_form">Email</p>
+        <div><input type="email" [(ngModel)]="email" /></div>
+        <p class="txt_form">Login</p>
+        <div><input type="email" [(ngModel)]="login2" /></div>
+        <p class="txt_form">Senha</p>
+        <div><input type="text" [(ngModel)]="senha" /></div>
+        <p class="txt_form">Cidade</p>
+        <div><input type="text" [(ngModel)]="cidade" /></div>
+        <p class="txt_form">Estado</p>
+        <div><input type="text" [(ngModel)]="estado" /></div>
+        <p class="txt_form">Perfil</p>
+        <div><input type="text" [(ngModel)]="perfil" /></div>
+        <hr />
+        <div>
+          <input
+            class="botao"
+            type="button"
+            value="Cadastrar"
+            (click)="postCadastro()"
+          />
+        </div>
       </div>
     </div>
   </div>
 
+  <div *ngIf="auth2">
+    <div class="form">
+      <div *ngIf="!auth4">
+        <h2>Regiões</h2>
+        <hr />
+        <p class="txt_form">Cidade</p>
+        <div><input type="text" [(ngModel)]="cidade" /></div>
+        <p class="txt_form">Estado</p>
+        <div><input type="text" [(ngModel)]="estado" /></div>
+        <hr />
+        <div>
+          <input
+            class="botao"
+            type="button"
+            value="Cadastrar"
+            (click)="postRegiao()"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <div class="apt">
-    <div class="form_req">
-      <p><button class="botao_get" (click)="getListReg()">Regiões</button></p>
+  <!--Cápsulas-->
+  <div *ngIf="auth">
+    <!--perfl logado-->
+    <div class="log_user">
+      Bem vindo (a), {{ auth.username }}
+      <input
+        type="button"
+        class="botao_sair"
+        value="Sair"
+        (click)="postLogout()"
+      />
+    </div>
+    <br />
+    <!--cadastro cápsula-->
+    <div class="form">
+      <div *ngIf="!auth2">
+        <h2>Cadastrar Cápsula</h2>
+        <hr />
+        <p class="txt_form">Título</p>
+        <div><input type="text" [(ngModel)]="title" /></div>
+        <p class="txt_form">Ano</p>
+        <div><input type="text" [(ngModel)]="ano" /></div>
+        <p class="txt_form">Descrição</p>
+        <div><input type="text" [(ngModel)]="descricao" /></div>
+        <p class="txt_form">Imagem</p>
+        <div><input type="text" [(ngModel)]="imageUrl" /></div>
+        <hr />
+        <div>
+          <input
+            class="botao"
+            type="button"
+            value="Cadastrar"
+            (click)="postCapsula()"
+          />
+        </div>
+      </div>
+    </div>
 
+    <p class="form">Clique no botão para ver as cápsulas cadastradas</p>
+    <div class="apt">
+      <!--Cápsulas-->
+      <div *ngIf="!auth3">
+        <div class="form_req">
+          <p><button class="botao_get" (click)="getList()">Cápsulas</button></p>
+
+          <div class="list" *ngIf="list">
+            <table>
+              <tr>
+                <th>id</th>
+                <th>título</th>
+                <th>ano</th>
+                <th>descricao</th>
+                <th>imageUrl</th>
+                <th>Ações</th>
+              </tr>
+
+              <tr *ngFor="let item of list">
+                <td>{{ item['id'] }}</td>
+                <td>{{ item['title'] }}</td>
+                <td>{{ item['ano'] }}</td>
+                <td>{{ item['descricao'] }}</td>
+                <td>{{ item['imageUrl'] }}</td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="apt">
       <div class="form_req">
+        <p>
+          <button class="botao_get" (click)="getIntg()">Integrantes</button>
+        </p>
+
         <div class="list" *ngIf="list">
           <table>
             <tr>
+              <th>id</th>
+              <th>nome</th>
+              <th>email</th>
+              <th>publicação</th>
+              <th>região</th>
+              <th>perfis</th>
               <th>cidade</th>
               <th>estado</th>
             </tr>
+
             <tr *ngFor="let item of list">
+              <td>{{ item['id'] }}</td>
+              <td>{{ item['nome'] }}</td>
+              <td>{{ item['email'] }}</td>
+              <td>{{ item['publicacao'] }}</td>
+              <td>{{ item['regiao.cidade'] }}</td>
               <td>{{ item['cidade'] }}</td>
               <td>{{ item['estado'] }}</td>
+              <td>{{ item['perfis'] }}</td>
             </tr>
           </table>
         </div>
       </div>
     </div>
+
+    <div class="apt">
+      <div class="form_req">
+        <p><button class="botao_get" (click)="getListReg()">Regiões</button></p>
+
+        <div class="form_req">
+          <div class="list" *ngIf="list">
+            <table>
+              <tr>
+                <th>cidade</th>
+                <th>estado</th>
+              </tr>
+              <tr *ngFor="let item of list">
+                <td>{{ item['cidade'] }}</td>
+                <td>{{ item['estado'] }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
---></div>

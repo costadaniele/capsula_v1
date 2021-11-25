@@ -101,7 +101,7 @@ export class LoginComponent {
         perfis: this.perfil,
       })
       .subscribe((data) => {
-        this.auth3 = data;
+        this.auth4 = data;
       });
   }
 
@@ -112,7 +112,8 @@ export class LoginComponent {
         estado: this.estado,
       })
       .subscribe((data) => {
-        this.auth4 = data;
+        this.auth3 = data;
+        alert('Integrante cadastrado com sucesso!');
       });
   }
 
@@ -140,19 +141,29 @@ export class LoginComponent {
       });
   }
 
-  /*deleteList() {
+  getListReg() {
     this.http
-      .delete<any>(this.site + '/integrantes/' + id {
+      .get<any>(this.site + '/regioes', {
         headers: { Authorization: 'Bearer ' + this.auth.token },
       })
       .subscribe((data) => {
         this.list = data;
       });
-  }*/
+  }
 
-  getListReg() {
+  atualizar(id) {
     this.http
-      .get<any>(this.site + '/regioes', {
+      .put<any>(this.site + '/capsulas' + id, {
+        headers: { Authorization: 'Bearer ' + this.auth.token },
+      })
+      .subscribe((data) => {
+        this.list = data;
+      });
+  }
+
+  remover(id: number) {
+    this.http
+      .delete(this.site + '/capsulas/' + { id }, {
         headers: { Authorization: 'Bearer ' + this.auth.token },
       })
       .subscribe((data) => {

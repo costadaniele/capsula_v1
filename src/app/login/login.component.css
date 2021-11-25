@@ -5,6 +5,12 @@
   margin: 3em;
 }
 
+.form2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .botao {
   font-size: 16px;
   border: 0.1em solid #272838;
@@ -42,8 +48,9 @@
 }
 
 .log_user {
+  margin-top: 2em;
+  margin-left: 5em;
   float: right;
-  margin-right: 5em;
 }
 
 th,
@@ -87,4 +94,16 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.remove {
+  font-size: 16px;
+  border: 0.1em solid #6a041d;
+  border-radius: 0.2em;
+  width: 4em;
+  height: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background-color: #6a041d;
+  color: #fff;
 }

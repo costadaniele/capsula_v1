@@ -4,7 +4,7 @@
       <div *ngIf="!auth2">
         <h2>Login</h2>
         <hr />
-        <p class="txt_form">Integrante</p>
+        <p class="txt_form">Login Integrante</p>
         <div><input type="text" [(ngModel)]="login" /></div>
         <p class="txt_form">Senha</p>
         <div><input type="password" [(ngModel)]="password" /></div>
@@ -37,8 +37,6 @@
         <div><input type="text" [(ngModel)]="cidade" /></div>
         <p class="txt_form">Estado</p>
         <div><input type="text" [(ngModel)]="estado" /></div>
-        <p class="txt_form">Perfil</p>
-        <div><input type="text" [(ngModel)]="perfil" /></div>
         <hr />
         <div>
           <input
@@ -53,8 +51,8 @@
   </div>
 
   <div *ngIf="auth2">
-    <div class="form">
-      <div *ngIf="!auth4">
+    <div class="form2">
+      <div *ngIf="!auth3">
         <h2>Regiões</h2>
         <hr />
         <p class="txt_form">Cidade</p>
@@ -78,13 +76,15 @@
   <div *ngIf="auth">
     <!--perfl logado-->
     <div class="log_user">
-      Bem vindo (a), {{ auth.username }}
-      <input
-        type="button"
-        class="botao_sair"
-        value="Sair"
-        (click)="postLogout()"
-      />
+      <div *ngIf="!auth2">
+        Bem vindo (a), {{ auth.username }}
+        <input
+          type="button"
+          class="botao_sair"
+          value="Sair"
+          (click)="postLogout()"
+        />
+      </div>
     </div>
     <br />
     <!--cadastro cápsula-->
@@ -127,7 +127,7 @@
                 <th>ano</th>
                 <th>descricao</th>
                 <th>imageUrl</th>
-                <th>Ações</th>
+                <!--  <th>Ações</th> -->
               </tr>
 
               <tr *ngFor="let item of list">
@@ -136,7 +136,9 @@
                 <td>{{ item['ano'] }}</td>
                 <td>{{ item['descricao'] }}</td>
                 <td>{{ item['imageUrl'] }}</td>
-                <td></td>
+                <!-- <td>
+                  <button class="remove" (click)="remover(item.id)">X</button> 
+                </td> -->
               </tr>
             </table>
           </div>
@@ -156,9 +158,6 @@
               <th>id</th>
               <th>nome</th>
               <th>email</th>
-              <th>publicação</th>
-              <th>região</th>
-              <th>perfis</th>
               <th>cidade</th>
               <th>estado</th>
             </tr>
@@ -167,11 +166,8 @@
               <td>{{ item['id'] }}</td>
               <td>{{ item['nome'] }}</td>
               <td>{{ item['email'] }}</td>
-              <td>{{ item['publicacao'] }}</td>
-              <td>{{ item['regiao.cidade'] }}</td>
               <td>{{ item['cidade'] }}</td>
               <td>{{ item['estado'] }}</td>
-              <td>{{ item['perfis'] }}</td>
             </tr>
           </table>
         </div>
